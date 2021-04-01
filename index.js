@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 require('dotenv').config();
-const port = process.env.PORT || 5000;
+const port = 5000;
 const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.avi8n.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
@@ -66,4 +66,4 @@ app.get('/', (req, res) => {
     res.send('Hello duniya');
 })
 
-app.listen(port);
+app.listen(process.env.PORT || port);
